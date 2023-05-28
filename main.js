@@ -3,6 +3,9 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import earthTextureImg from './public/images/earth.jpg';
+import earthNormalMapImg from './public/images/earth_normal_map.png';
+import mattImg from './public/images/matt.png';
 import './style.css'
 
 // "scene" seria como se fosse um container, aonde os elementos 3d estarão dentro
@@ -93,7 +96,7 @@ Array(200).fill().forEach(addStar);
 
 // Avatar
 
-const mattTexture = new THREE.TextureLoader().load('../public/images/matt.png');
+const mattTexture = new THREE.TextureLoader().load(mattImg);
 
 const matt = new THREE.Mesh(
   new THREE.BoxGeometry(3, 3, 3),
@@ -108,8 +111,8 @@ scene.add(matt);
 
 // earth
 
-const earthTexture = new THREE.TextureLoader().load('../public/images/earth.jpg');
-const normalEarthTexture = new THREE.TextureLoader().load('../public/images/earth_normal_map.png');
+const earthTexture = new THREE.TextureLoader().load(earthTextureImg);
+const normalEarthTexture = new THREE.TextureLoader().load(earthNormalMapImg);
 
 const earth = new THREE.Mesh(
   new THREE.SphereGeometry(3, 100, 100),
